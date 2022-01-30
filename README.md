@@ -1,6 +1,6 @@
-# CSE210-Template (CHANGE ME!!!)
+# CSE210-03
 
-BYUI CSE-210 Template Repo (CHANGE ME!!!)
+BYUI CSE-210-03 Team Project
 
 ## How to use this project
 
