@@ -4,6 +4,8 @@
 
 * Added base classes
 
+* Added base layout for a folder structure
+
 ## 0.0.1
 
 * Initial release
