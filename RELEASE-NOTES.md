@@ -1,5 +1,9 @@
 # RELEASE NOTES
 
+## 0.0.2
+
+* Added base classes
+
 ## 0.0.1
 
 * Initial release
