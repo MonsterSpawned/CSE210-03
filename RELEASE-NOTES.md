@@ -1,5 +1,17 @@
 # RELEASE NOTES
 
+## 0.0.2.5
+
+* Added a fancy printing function
+
+* Implemented the Python "art" library
+
+## 0.0.2
+
+* Added base classes
+
+* Added base layout for a folder structure
+
 ## 0.0.1
 
 * Initial release

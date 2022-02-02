@@ -24,7 +24,6 @@ BYUI CSE-210-03 Team Project
 
 * If you don't know how to use MarkDown (GitHub's text editor language), please see here for a reference guide: [link](https://www.markdownguide.org/)
 
-
 * To add to the group ToDo list, please create an "Issue," with the "Issues" tab of the GitHub repository. Please choose the correct category and all should go well.
   * If you are requesting a feature, please assign yourself to the issue. This will be how we track our "TODO's."
   * If you are submiting a bug report, please give **AS MUCH INFORMATION AS POSSIBLE**, and assign yourself to the issue. Others who can handle it will assign themselves when they can tackle it.
