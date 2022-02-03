@@ -1,10 +1,14 @@
 
-#from art import tprint
+from art import tprint
+
 class Utils():
     
     # Prints a fancy word in the console:
     def print_fancy(msg, font):
         if font != None:
-            print(msg, font)
+            tprint(msg, font)
         else:
-            print(msg)
+            tprint(msg)
+            
+    def print_normal(msg):
+        print("[LOG] " + msg)

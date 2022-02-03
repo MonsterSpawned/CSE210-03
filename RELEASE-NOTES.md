@@ -1,5 +1,13 @@
 # RELEASE NOTES
 
+## 0.0.3
+
+* Added the beginnings of the jumper code
+
+* Added fancy printing of game title
+
+* Added the beginnings of the handleRound function, as well as various other functions. :)
+
 ## 0.0.2.5
 
 * Added a fancy printing function

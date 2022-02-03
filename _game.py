@@ -1,12 +1,23 @@
-import imp
 from game_data.word import Word
 from game_data.player import Player
-from game_data.game_common import GameCommon
+from game_data.utils import Utils
 
 class Game():
-    pass
+    def __init__(self):
+        self.game_name = "JUMPER GAME"
+    
+    def startGame(self):
+        Utils.print_fancy("JUMPER GAME:", "")
+        print("Welcome to {}!\n\nIn this game you will seek to solve a puzzle by guessing the letters of the secret word, one at a time\n\nBe cautious, for when you lose, this man dies!\n\n".format(self.game_name))
+        self.player = Player()
+        self.word = Word()
+        self.handleRound()
+        
+    def handleRound(self):
+        pass # TODO: Run an instance of each round here... :)
 
 if __name__ == "__main__":
-    print("Starting up...")
+    print("\nStarting up...\n")
     game = Game()
-    # TODO: Do something here...
+    game.startGame()
+    
