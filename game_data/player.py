@@ -10,8 +10,7 @@ class Player():
             "\n Be cautiuos, for when you lose, the man dies! \n ")
 
         name = input('Enter your nickname: ').capitalize()
-        print(f"Let's start, {name}!")
-        print()
+        print(f"Let's start, {name}!\n")
 
         guess = str(word.choose_word(self))
         word.guess_lines(self, guess)
