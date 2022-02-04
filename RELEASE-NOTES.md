@@ -1,12 +1,18 @@
 # RELEASE NOTES
 
+## 0.0.3.5
+
+* Added parachuting stages
+
+* Removed player health variable as it is no longer needed
+
 ## 0.0.3
 
 * Added the beginnings of the jumper code
 
 * Added fancy printing of game title
 
-* Added the beginnings of the handleRound function, as well as various other functions. :)
+* Added the beginnings of the handleRound function, as well as various other functions :)
 
 ## 0.0.2.5
 
