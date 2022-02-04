@@ -1,3 +1,4 @@
+# Authors: Bryan Hunter and Aitana (Invitado)
 from game_data.word import Word
 from game_data.parachutist_stages import ParachutistStages
 
