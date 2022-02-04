@@ -11,6 +11,9 @@ class Game():
         Utils.print_fancy(self.game_name + ":", "")
         print("Welcome to {}!\n\nIn this game you will seek to solve a puzzle by guessing the letters of the secret word, one at a time\n\nBe cautious, for when you lose, this man dies!\n\n".format(self.game_name))
         self.player = Player()
+        self.currentTurn = 0
+        guess = str(self.word.choose_word())
+        self.word.print_guess_lines(guess)
         self.word = Word()
         self.handleRound()
         
