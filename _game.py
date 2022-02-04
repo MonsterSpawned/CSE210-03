@@ -1,3 +1,4 @@
+# Authors: Bryan Hunter and Josh Liddiard
 from game_data.word import Word
 from game_data.player import Player
 from game_data.utils import Utils
