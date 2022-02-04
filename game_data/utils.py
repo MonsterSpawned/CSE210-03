@@ -1,4 +1,4 @@
-
+# Authors: Bryan Hunter and Kent Lewis
 from art import tprint
 
 class Utils():
