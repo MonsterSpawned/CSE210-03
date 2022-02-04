@@ -1,3 +1,4 @@
+# Authors: Bryan Hunter and Guage Schneider
 import random
 import os
 from os.path import sep
