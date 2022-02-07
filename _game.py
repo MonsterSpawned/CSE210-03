@@ -27,6 +27,8 @@ class Game():
             guess_state = self.utils.get_player_input("What letter would you like to guess? (Not case-sensitive): ")
             if guess_state == True:
                 print("Correct!")
+            else:
+                print("Try again!")
         # TODO: Run an instance of each round here... :)
 
 if __name__ == "__main__":
