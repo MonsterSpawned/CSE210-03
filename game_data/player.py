@@ -3,7 +3,7 @@ from game_data.word import Word
 from game_data.parachutist_stages import ParachutistStages
 
 class Player():
-    # TODO: Hold player health here (if we want to measure it that way) and other stats here. Use as an instance for the "parachutist" for each round. 
+    # TODO: Print the stages each time the player guesses wrong (which is held in the 'utils.py' and '_game.py' code).
     
     def __init__(self):
         self.currentStage = ParachutistStages.stage_1
