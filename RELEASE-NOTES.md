@@ -1,5 +1,21 @@
 # RELEASE NOTES
 
+## 0.0.4
+
+* Game now functions
+
+* Added a letter guessing mechanism to the game
+
+* Added a function to print the parachutist stages
+
+* Added some "wiggle room" for future improvements
+
+* Added a "handle_round()" function.
+
+* Moved some code around
+
+* Removed Herobrine
+
 ## 0.0.3.5
 
 * Added parachuting stages
