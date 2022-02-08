@@ -12,27 +12,45 @@ class Game():
         self.word = Word()
         self.player = Player()
     
-    def startGame(self):
+    def start_game(self):
         self.utils.print_fancy(self.game_name + ":", "")
         print("Welcome to {}!\n\nIn this game you will seek to solve a puzzle by guessing the letters of the secret word, one at a time\n\nBe cautious, for when you lose, this man dies!\n\n".format(self.game_name))
-        self.currentTurn = 0
+        self.currentStage = 1
+        self.handle_round()
+    
+    def handle_round(self):
+        self.player.print_current_stage(self.currentStage)
         current_word = str(self.utils.choose_word())
         self.utils.print_guess_lines(current_word)
-        self.handleRound()
         
-    def handleRound(self):
-        guess_state = True
-        while guess_state:
-            sleep(1)
-            guess_state = self.utils.get_player_input("What letter would you like to guess? (Not case-sensitive): ")
-            if guess_state == True:
-                print("Correct!")
-            else:
-                print("Try again!")
-        # TODO: Run an instance of each round here... :)
+        guesses = []
+        
+        while True:
+            guess = self.utils.get_player_input("\nWhat letter would you like to guess? (Not case-sensitive): ")
+
+            if guess in guesses:
+                print("\nYou have already guessed: {}\n".format(guess))
+            elif guess not in self.utils.guess_display:
+                for pos in range(len(current_word)):
+                    if guess==current_word[pos]:
+                        self.utils.guess_display[pos]=guess
+                print(" ".join(self.utils.guess_display) + "\n")
+                if guess not in current_word:
+                    self.currentStage += 1
+                    self.player.print_current_stage(self.currentStage)
+                    print(f"\nYou guessed: '{guess}'. That's not a letter in the word.\n") #TODO: User friendly feedback, possibly in the form of a "get_feedback()" function in utils.py.
+                    if self.currentStage == 6:
+                        self.player.print_current_stage(self.currentStage)
+                        print("\nSPLAT! Game over.\n")
+                        break
+                if "_" not in self.utils.guess_display:
+                    print("\nVictory! You guessed the word.\n")
+                    break
+            guesses.append(guess)
 
 if __name__ == "__main__":
     print("\nStarting up...\n")
+    sleep(3)
     game = Game()
-    game.startGame()
+    game.start_game()
     
