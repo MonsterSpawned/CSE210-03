@@ -56,7 +56,7 @@ class Game():
             sleep(2)
             self.start_game()
         elif _ask in ["NO".upper(), "N".upper()]:
-            print(f'Thanks for playing in {self.game_name}')
+            print(f'Thanks for playing in {self.game_name}!')
 
 if __name__ == "__main__":
     print("\nStarting up...\n")
