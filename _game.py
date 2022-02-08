@@ -17,6 +17,7 @@ class Game():
         print("Welcome to {}!\n\nIn this game you will seek to solve a puzzle by guessing the letters of the secret word, one at a time\n\nBe cautious, for when you lose, this man dies!\n\n".format(self.game_name))
         self.currentStage = 1
         self.handle_round()
+        self.play_again()
     
     def handle_round(self):
         self.player.print_current_stage(self.currentStage)
@@ -47,6 +48,15 @@ class Game():
                     print("\nVictory! You guessed the word.\n")
                     break
             guesses.append(guess)
+
+    def play_again(self):
+        _ask = input('Do you want to play again? (Y/N) ').upper()
+        if _ask == "YES" or "Y":
+            print()
+            sleep(2)
+            self.start_game()
+        elif _ask == "NO" or "N":
+            print(f'Thanks for playing in {self.game_name}')
 
 if __name__ == "__main__":
     print("\nStarting up...\n")
