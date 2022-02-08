@@ -51,11 +51,11 @@ class Game():
 
     def play_again(self):
         _ask = input('Do you want to play again? (Y/N) ').upper()
-        if _ask == "YES" or "Y":
+        if _ask in ["YES".upper(), "Y".upper()]:
             print()
             sleep(2)
             self.start_game()
-        elif _ask == "NO" or "N":
+        elif _ask in ["NO".upper(), "N".upper()]:
             print(f'Thanks for playing in {self.game_name}')
 
 if __name__ == "__main__":
