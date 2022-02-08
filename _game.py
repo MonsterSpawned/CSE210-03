@@ -39,7 +39,7 @@ class Game():
                 if guess not in current_word:
                     self.currentStage += 1
                     self.player.print_current_stage(self.currentStage)
-                    print(f"\nYou guessed: '{guess}'. That's not a letter in the word.\n") #TODO: User friendly feedback, possibly in the form of a "get_feedback()" function in utils.py.
+                    print("\nYou guessed: '{}'. That's not a letter in the word.\n".format(guess)) #TODO: User friendly feedback, possibly in the form of a "get_feedback()" function in utils.py.
                     if self.currentStage == 6:
                         self.player.print_current_stage(self.currentStage)
                         print("\nSPLAT! Game over.\n")
@@ -56,7 +56,7 @@ class Game():
             sleep(2)
             self.start_game()
         elif _ask in ["NO".upper(), "N".upper()]:
-            print(f'Thanks for playing in {self.game_name}!')
+            print('\nThanks for playing in {}!'.format(self.game_name))
             sleep(1)
             exit(0)
 
