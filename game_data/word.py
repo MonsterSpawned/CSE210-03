@@ -10,16 +10,18 @@ class Word:
     def __init__(self):
         self.selected_word = ""
         self.guess_sub = []
-
-        with open(os.getcwd() + sep + "words.txt", "r") as f:
+        self.words = []
+        
+        with open(os.getcwd() + sep + "_words.txt", "r") as f:
             self.words = f.readlines()
+            length = len(self.words)
+            self.selected_word = self.words[random.randint(0, length - 1)].strip("\n")
 
-    def choose_word(self):
-        self.selected_word = random.choice(self.words)
-        self.guess_sub = ["_" for _ in self.selected_word]
-        return self.selected_word
-
-
+    # Prints the word guess list, wheel-of-fortune style:
+    def print_guess_lines(self, selected_word):
+        self.guess_display = ['_' for _ in selected_word]
+        print(" ".join(self.guess_display))
+    
     """ngl I'm a bit confused at what this is supposed to do.... Hence why it is commented out
     Let's please discuss on date of the meeting Thursday."""
     # def print_guess_lines(self, selected_word):
@@ -28,9 +30,10 @@ class Word:
 
     # print(" ".join(self.guess_sub))
     #     print(self.guess_sub)
-
-    def check_guess(self, letter: str) -> bool:
-        # Penis
+    def get_selected_word(self):
+        return self.selected_word
+    
+    def check_guess(self, letter: str):
         if len(letter) > 1:
             raise ValueError("Too many letters!")
         if letter not in self.selected_word:

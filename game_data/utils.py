@@ -42,7 +42,6 @@ class Utils():
     
     def __init__(self):
         self.word = Word()
-        self.guess_display = []
         self.current_platform = self.get_platform()
         self.tcolors = TextColors()
         
@@ -53,24 +52,6 @@ class Utils():
     def clear_console(self):
         command = 'cls' if os.name in ('nt', 'dos') else 'clear'
         os.system(command)
-        
-    # Chooses a word from the 'words.txt' file, randomly:
-    def choose_word(self):
-        word_file = open(os.getcwd() +  sep + "_words.txt", "r")
-        words = []
-        words = word_file.readlines()
-        length = len(words)
-        self.word.selected_word = words[random.randint(0, length - 1)] 
-        print(self.word.selected_word) # NOTE: This is a debug print call to tell us what the word the game has selected is. This will need to be removed when this is completed.
-        return self.word.selected_word.strip("\n")
-    
-    def get_current_word(self):
-        return self.word.selected_word
-
-    # Prints the word guess list, wheel-of-fortune style:
-    def print_guess_lines(self, selected_word):
-        self.guess_display = ['_' for _ in selected_word]
-        print(" ".join(self.guess_display))
     
     # Prints a fancy word in the console:
     def print_fancy(self, msg, font):
@@ -85,41 +66,28 @@ class Utils():
         if _input.isalpha() != False:
             return str(_input)
         print("\n\n{}Please input a valid letter and try again.{}\n".format(self.tcolors.YELLOW, self.tcolors.RESET_ALL))
-        return None
-    
-    # TODO: Give the player a letter for a hint from the "get_current_word()" function, which will be referenced in the "give_hint()" function in "_game.py":
-    def get_random_letter_from_word(self):
-        #a_z_lowercase = string.ascii_lowercase
-        word_len = len(self.get_current_word())
-        
-        for item in self.get_current_word():
-            print(item)
-        
-    def get_random_letter(self):
-        letter_index = random.randint(min(self.word.selected_word), max(self.word.selected_word))
-        return self.word.selected_word[letter_index]
-        
+        return None        
     
     # TODO: Give feedback to the user based on the type of the scenario, hence the "scenario" variable. 
     # NOTE: The "user_guess" variable is optional, but can be used to pass through to the built feedback string as an argument.
     def get_feedback(self, scenario, user_guess="guess"):
         if scenario in ["miss", "wrong", "incorrect", 0]:
             if user_guess in ["guess", None]: 
-                feedback = []
+                feedback = ["Sorry, try again!", "Try another letter. :)"]
                 return random.choice(feedback)
             else:
-                guess_feedback = []
+                guess_feedback = [f"Sorry, {user_guess} is not a correct letter.", f"'{user_guess}'? Really?"]
                 return random.choice(guess_feedback)
         if scenario in ["correct", "right", 1]:
             if user_guess in ["guess", None]: 
-                feedback = []
+                feedback = ["You guessed a letter!", "That was a great guess!"]
                 return random.choice(feedback)
             else:
-                guess_feedback = []
+                guess_feedback = [f"'{user_guess}' is a correct letter!", f"'{user_guess}' is correct! Congrats on not getting a darwin award!"]
                 return random.choice(guess_feedback)
         if scenario in ["win", "victory", 2]:
-            feedback = []
+            feedback = ["You Win!", "That's some good guessin' there partner.", "You guessed all the letters!", "I like letters.", "Ready for another round, freddy?"]
             return random.choice(feedback)
         if scenario in ["quit", "exit", 3]:
-            feedback = []
+            feedback = ["See you later." ,"/kill game", "Going so soon? Awww..."]
             return random.choice(feedback)
