@@ -1,4 +1,6 @@
 # Authors: Bryan Hunter and Kent Lewis
+
+# Custom imports (PIP packages):
 from art import tprint
 
 
@@ -7,7 +9,7 @@ class Utils:
     # TODO: Possible ideas: player input getter, player input validator, win and lose message, etc.
 
     # Prints a fancy word in the console:
-    def print_fancy(msg, font):
+    def print_fancy(self, msg, font):
         if font != None:
             tprint(msg, font)
         else:

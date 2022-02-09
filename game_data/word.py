@@ -15,9 +15,9 @@ class Word:
             self.words = f.readlines()
 
     def choose_word(self):
-        self._selected_word = random.choice(self.words)
+        self.selected_word = random.choice(self.words)
         self.guess_sub = ["_" for _ in self.selected_word]
-        return self.guess_sub
+        return self.selected_word
 
     # def print_guess_lines(self, selected_word):
     #     word_len = len(selected_word) - 1
@@ -27,6 +27,7 @@ class Word:
     #     print(self.guess_sub)
 
     def check_guess(self, letter: str) -> bool:
+        # Penis
         if len(letter) > 1:
             raise ValueError("Too many letters!")
         if letter not in self.selected_word:

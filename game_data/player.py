@@ -1,5 +1,8 @@
 # Authors: Bryan Hunter and Aitana (Invitado)
+
+# Game classes:
 from game_data.word import Word
+from game_data.utils import TextColors
 from game_data.parachutist_stages import ParachutistStages
 
 
