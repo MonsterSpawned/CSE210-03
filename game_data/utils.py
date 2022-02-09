@@ -89,5 +89,5 @@ class Utils():
             feedback = ["You Win!", "That's some good guessin' there partner.", "You guessed all the letters!", "I like letters.", "Ready for another round, freddy?"]
             return random.choice(feedback)
         if scenario in ["quit", "exit", 3]:
-            feedback = ["See you later." ,"/kill game", "Going so soon? Awww..."]
+            feedback = ["See you later." ,"/kill game", "Going so soon? Awww...","We will meet... again"]
             return random.choice(feedback)
