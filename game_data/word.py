@@ -19,6 +19,9 @@ class Word:
         self.guess_sub = ["_" for _ in self.selected_word]
         return self.selected_word
 
+
+    """ngl I'm a bit confused at what this is supposed to do.... Hence why it is commented out
+    Let's please discuss on date of the meeting Thursday."""
     # def print_guess_lines(self, selected_word):
     #     word_len = len(selected_word) - 1
     #     self.guess_sub = ('_ ' * word_len)
