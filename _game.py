@@ -30,7 +30,8 @@ class Game():
         
         guesses = []
         
-        print(self.word.get_selected_word())
+        # NOTE: REMOVED THE DEBUG FUNCTION:
+        # print(self.word.get_selected_word())
         
         while True:
             guess = self.utils.get_player_input("\n{}What letter would you like to guess? (Not case-sensitive): {}".format(self.tcolors.PROMPT, self.tcolors.RESET_ALL))
