@@ -5,23 +5,25 @@ from game_data.player import Player
 from game_data.utils import Utils, TextColors
 
 class Game():
+    
+    # Initialize the Game() class:
     def __init__(self):
-        self.game_name = "JUMPER GAME"
         self.currentTurn = None
         self.utils = Utils()
         self.tcolors = TextColors()
         self.player = Player()
         self.word = Word()
+        self.game_name = self.utils.get_game_name()
+        self.currentStage = 1
     
+    # Start the game:
     def start_game(self):
         self.utils.print_fancy(self.game_name + ":", "")
         print("Welcome to {}!\n\nIn this game you will seek to solve a puzzle by guessing the letters of the secret word, one at a time\n\nBe cautious, for when you lose, this man dies!\n\n".format(self.game_name))
-        # !!! TODO: Implement this!
-        #print("If you need a hint, type 'HINT' (Not case-sensitive, w/o quotes).\n\nYou can only do this once per round, however, so choose wisely as to when to use it!\n")
-        self.currentStage = 1
         self.handle_round()
         self.play_again()
     
+    # Handle one round of the game:
     def handle_round(self): 
         self.player.print_current_stage(self.currentStage)
         self.word.print_guess_lines(self.word.get_selected_word())
@@ -56,6 +58,7 @@ class Game():
                     break
             guesses.append(guess)
     
+    # Ask the user if they wish to play again:
     def play_again(self):
         _ask = input('Do you want to play again? (Y/N) ').upper()
         if _ask in ["YES", "Y"]:
@@ -67,7 +70,8 @@ class Game():
             print('\nThanks for playing {}! Come back soon!'.format(self.game_name))
             sleep(1)
             exit(0)
-    
+
+# Start the program:
 if __name__ == "__main__":
     print("\nStarting up...\n")
     sleep(3)

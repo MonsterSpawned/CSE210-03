@@ -9,9 +9,10 @@ from os.path import sep
 import random
 from game_data.word import Word
 from sys import platform
-import string
 
+# Colors for the text!
 class TextColors:
+    
     # Text colors:
     HEADER = '\033[95m'
     BLUE = '\033[94m'
@@ -26,6 +27,7 @@ class TextColors:
     CYAN = '\033[36m'
     BLUE = '\033[34m'
     BLACK = '\033[30m'
+    
     # Background colors:
     GREYBG = '\033[100m'
     REDBG = '\033[101m'
@@ -34,21 +36,38 @@ class TextColors:
     BLUEBG = '\033[104m'
     PINKBG = '\033[105m'
     CYANBG = '\033[106m'
+    
     # Misc:
     BRIGHT = '\033[1m'
     NORMAL_BRIGHTNESS = '\033[22m'
 
 class Utils():      
-    
+
+    # Initialize the Utils() class:
     def __init__(self):
         self.word = Word()
-        self.current_platform = self.get_platform()
+        self.print_platform()
         self.tcolors = TextColors()
-        
-    def get_platform(self):
+        self.currentStage = 0
+
+    # Get the current round:
+    def get_current_stage(self):
+        return int(self.currentStage)
+    
+    # Set the current stage:
+    def set_current_stage(self, stage):
+        self.currentStage = stage
+    
+    # Get the game name:
+    def get_game_name(self):
+        return "JUMPER GAME"
+    
+    # Print the user's current OS:
+    def print_platform(self):
         print("Current platform: {}\n".format(platform.capitalize()))
         return platform.lower()
     
+    # Clear the console, if needed:
     def clear_console(self):
         command = 'cls' if os.name in ('nt', 'dos') else 'clear'
         os.system(command)
@@ -66,10 +85,8 @@ class Utils():
         if _input.isalpha() != False:
             return str(_input)
         print("\n\n{}Please input a valid letter and try again.{}\n".format(self.tcolors.YELLOW, self.tcolors.RESET_ALL))
-        return None        
-    
-    # TODO: Give feedback to the user based on the type of the scenario, hence the "scenario" variable. 
-    # NOTE: The "user_guess" variable is optional, but can be used to pass through to the built feedback string as an argument.
+
+    # Give the user an encore for how they are doing:
     def get_feedback(self, scenario, user_guess="guess"):
         if scenario in ["miss", "wrong", "incorrect", 0]:
             if user_guess in ["guess", None]: 

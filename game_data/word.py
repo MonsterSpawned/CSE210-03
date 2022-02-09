@@ -5,8 +5,8 @@ from os.path import sep
 
 
 class Word:
-    # TODO: Load words from 'words.txt' into a list, randomly select one, and have that be the "word" for the instance of this class.
 
+    # Initialize the Word() class:
     def __init__(self):
         self.selected_word = ""
         self.guess_sub = []
@@ -22,17 +22,11 @@ class Word:
         self.guess_display = ['_' for _ in selected_word]
         print(" ".join(self.guess_display))
     
-    """ngl I'm a bit confused at what this is supposed to do.... Hence why it is commented out
-    Let's please discuss on date of the meeting Thursday."""
-    # def print_guess_lines(self, selected_word):
-    #     word_len = len(selected_word) - 1
-    #     self.guess_sub = ('_ ' * word_len)
-
-    # print(" ".join(self.guess_sub))
-    #     print(self.guess_sub)
+    # Gets the currently selected word by the game:   
     def get_selected_word(self):
         return self.selected_word
     
+    # Checks to make sure only one letter was inputted:
     def check_guess(self, letter: str):
         if len(letter) > 1:
             raise ValueError("Too many letters!")
