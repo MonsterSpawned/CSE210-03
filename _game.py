@@ -15,7 +15,6 @@ class Game():
         self.word = Word()
         self.guessed_word = GuessedWord(self.word.get_selected_word())
         self.game_name = "Jumper Game"
-        self.guesses=[]
 
     # Start the game:
     def start_game(self):
@@ -44,7 +43,7 @@ class Game():
                 print('{}[ERROR]: "{}"{}'.format(self.tcolors.RED, error, self.tcolors.RESET_ALL))
             if int(self.player.get_current_stage()) == 6:
                 self.player.print_current_stage(self.player.get_current_stage())
-                print("\n{}SPLAT! Game over.{}\n".format(self.tcolors.RED, self.tcolors.RESET_ALL))
+                print("\n{}SPLAT! Game over. The word was {}{}\n".format(self.tcolors.RED, self.word.get_selected_word, self.tcolors.RESET_ALL))
                 self.play_again()
             if "_" not in self.guessed_word.guess_string:
                 self.utils.print_guess_string(self.guessed_word.guess_string) #display any guessed characters and the empty blanks for the word
@@ -52,7 +51,6 @@ class Game():
             else:
                 self.handle_round()
 
-    
     # Ask the user if they wish to play again:
     def play_again(self):
         _ask = input('Do you want to play again? (Y/N) ').upper()
