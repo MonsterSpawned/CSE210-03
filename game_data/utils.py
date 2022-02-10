@@ -7,8 +7,8 @@ from art import tprint
 import os
 from os.path import sep
 import random
-from game_data.word import Word
 from sys import platform
+
 
 # Colors for the text!
 class TextColors:
@@ -45,22 +45,8 @@ class Utils():
 
     # Initialize the Utils() class:
     def __init__(self):
-        self.word = Word()
         self.print_platform()
         self.tcolors = TextColors()
-        self.currentStage = 0
-
-    # Get the current round:
-    def get_current_stage(self):
-        return int(self.currentStage)
-    
-    # Set the current stage:
-    def set_current_stage(self, stage):
-        self.currentStage = stage
-    
-    # Get the game name:
-    def get_game_name(self):
-        return "JUMPER GAME"
     
     # Print the user's current OS:
     def print_platform(self):
@@ -71,6 +57,10 @@ class Utils():
     def clear_console(self):
         command = 'cls' if os.name in ('nt', 'dos') else 'clear'
         os.system(command)
+
+    #Print the guess line and guessed letters
+    def print_guess_string(self, guess_string):
+        print(" ".join(guess_string))
     
     # Prints a fancy word in the console:
     def print_fancy(self, msg, font):
@@ -80,27 +70,30 @@ class Utils():
             tprint(msg)
     
     # Gets the player's guess input:
-    def get_player_input(self, guess_input):    
+    def get_player_input(self, guess_input):  
         _input = str(input(guess_input)).lower()
-        if _input.isalpha() != False:
-            return str(_input)
+        if _input.isalpha():
+            if len(_input) > 1:
+                raise ValueError("Too many letters!")
+            else:
+                return str(_input)
         print("\n\n{}Please input a valid letter and try again.{}\n".format(self.tcolors.YELLOW, self.tcolors.RESET_ALL))
 
-    # Give the user an encore for how they are doing:
+    # Give the user feedback for how they are doing:
     def get_feedback(self, scenario, user_guess="guess"):
         if scenario in ["miss", "wrong", "incorrect", 0]:
             if user_guess in ["guess", None]: 
                 feedback = ["Sorry, try again!", "Try another letter. :)"]
                 return random.choice(feedback)
             else:
-                guess_feedback = ["Sorry, {} is not a correct letter.".format(user_guess), "'{}'? Really?".format(user_guess)]
+                guess_feedback = [f"Sorry, {user_guess} is not a correct letter.", f"'{user_guess}'? Really?"]
                 return random.choice(guess_feedback)
         if scenario in ["correct", "right", 1]:
             if user_guess in ["guess", None]: 
                 feedback = ["You guessed a letter!", "That was a great guess!"]
                 return random.choice(feedback)
             else:
-                guess_feedback = ["'{}' is a correct letter!".format(user_guess), "'{}' is correct! Congrats on not getting a darwin award!".format(user_guess)]
+                guess_feedback = [f"'{user_guess}' is a correct letter!", f"'{user_guess}' is correct! Congrats on not getting a darwin award!"]
                 return random.choice(guess_feedback)
         if scenario in ["win", "victory", 2]:
             feedback = ["You Win!", "That's some good guessin' there partner.", "You guessed all the letters!", "I like letters.", "Ready for another round, freddy?"]

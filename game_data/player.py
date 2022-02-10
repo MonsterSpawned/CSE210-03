@@ -1,21 +1,27 @@
 # Authors: Bryan Hunter and Aitana (Invitado)
 
 # Game classes:
-from game_data.word import Word
 from game_data.utils import TextColors
 from game_data.parachutist_stages import ParachutistStages
 
 class Player():
     
-    # Initialize the Game() class:
+    # Initialize the Player() class:
     def __init__(self):
+        self.currentStage = 1
         self.stages = ParachutistStages()
-        self.currentStage = self.stages.get_stage("first")
-        self.wrongGuesses = 0
+
+    # Get the current round:
+    def get_current_stage(self):
+        return int(self.currentStage)
     
-    # Print the current stage:
+    # Set the current stage:
+    def set_current_stage(self, stage):
+        self.currentStage = stage
+    
+    # Show the state of the jumper:
     def print_current_stage(self, current_stage):
-        if current_stage in [1, 0, "first"]:
+        if current_stage ==1:
             print(self.stages.get_stage(current_stage).format(TextColors.WHITE, TextColors.RESET_ALL))
         if current_stage == 2:
             print(self.stages.get_stage(current_stage).format(TextColors.GREEN, TextColors.RESET_ALL))
