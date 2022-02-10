@@ -6,8 +6,8 @@ BYUI CSE-210-03 Team Project
 
 - This program runs a game in which the player guesses letters to try to figure out a secret word
 - _game.py holds the main program which runs the game
-- Our team applied abstraction and encapsulation to our program by dividing up the card functions/data to various files:
-- guessed_word.py which acts as a holder to store the player's correct guesses and the remaining blanks in the word
+- Our team applied abstraction and encapsulation to our program by dividing up the various functions/data to separate files:
+- guessed_word.py acts as a holder to store the player's correct guesses and the remaining blanks in the word
 - parachutist_stages.py which holds the states the parachutist can be in
 - player.py which tracks how many wrong guesses have occurred and displays the state of the parachutist
 - utils.py which handles input and output as well as some special formatting for printing functions
