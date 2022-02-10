@@ -2,6 +2,30 @@
 
 BYUI CSE-210-03 Team Project
 
+## Code for Educational Purposes
+
+- This program runs a game in which the player guesses letters to try to figure out a secret word
+- _game.py holds the main program which runs the game
+- Our team applied abstraction and encapsulation to our program by dividing up the card functions/data to various files:
+- guessed_word.py which acts as a holder to store the player's correct guesses and the remaining blanks in the word
+- parachutist_stages.py which holds the states the parachutist can be in
+- player.py which tracks how many wrong guesses have occurred and displays the state of the parachutist
+- utils.py which handles input and output as well as some special formatting for printing functions
+- word.py which reads from the _words.txt file and randomly selects a secret word for each round of gameplay
+
+## Authors/Credits
+
+- Bryan Hunter
+  - hunterviper1996@gmail.com
+- Kent Lewis
+  - koyoshi44@gmail.com
+- Guage Schneider
+  - guage.schneider@gmail.com
+- Josh Liddiard
+  - pizzathief19@gmail.com
+- Aitana Toscano
+  - aitanantc@gmail.com
+
 ## How to use this project
 
 1. Fork the repository (using the GitHub 'fork' button on the repo page)

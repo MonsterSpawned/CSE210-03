@@ -1,5 +1,11 @@
 # RELEASE NOTES
 
+## 0.0.5
+
+* Overhaul and rearrangement of several functions and files
+
+* Addition of guessed_word.py to hold guess information
+
 ## 0.0.4
 
 * Game now functions
