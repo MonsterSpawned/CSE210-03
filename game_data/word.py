@@ -27,7 +27,7 @@ class Word:
         return self.selected_word
     
     # Checks to make sure only one letter was inputted:
-    def check_guess(self, letter: str):
+    def check_guess(self, letter):
         if len(letter) > 1:
             raise ValueError("Too many letters!")
         if letter not in self.selected_word:

@@ -93,14 +93,14 @@ class Utils():
                 feedback = ["Sorry, try again!", "Try another letter. :)"]
                 return random.choice(feedback)
             else:
-                guess_feedback = [f"Sorry, {user_guess} is not a correct letter.", f"'{user_guess}'? Really?"]
+                guess_feedback = ["Sorry, {} is not a correct letter.".format(user_guess), "'{}'? Really?".format(user_guess)]
                 return random.choice(guess_feedback)
         if scenario in ["correct", "right", 1]:
             if user_guess in ["guess", None]: 
                 feedback = ["You guessed a letter!", "That was a great guess!"]
                 return random.choice(feedback)
             else:
-                guess_feedback = [f"'{user_guess}' is a correct letter!", f"'{user_guess}' is correct! Congrats on not getting a darwin award!"]
+                guess_feedback = ["'{}' is a correct letter!".format(user_guess), "'{}' is correct! Congrats on not getting a darwin award!".format(user_guess)]
                 return random.choice(guess_feedback)
         if scenario in ["win", "victory", 2]:
             feedback = ["You Win!", "That's some good guessin' there partner.", "You guessed all the letters!", "I like letters.", "Ready for another round, freddy?"]

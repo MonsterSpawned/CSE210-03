@@ -18,7 +18,7 @@ class Game():
     
     # Start the game:
     def start_game(self):
-        self.utils.print_fancy(self.game_name + ":", "")
+        self.utils.print_fancy('{}:'.format(self.game_name), "")
         print("Welcome to {}!\n\nIn this game you will seek to solve a puzzle by guessing the letters of the secret word, one at a time\n\nBe cautious, for when you lose, this man dies!\n\n".format(self.game_name))
         self.handle_round()
         self.play_again()
@@ -47,10 +47,10 @@ class Game():
                     if guess not in self.word.get_selected_word():
                         self.currentStage += 1
                         self.player.print_current_stage(self.currentStage)
-                        print("\n{}You guessed: '{}'. That's not a letter in the word.{}\n".format(self.tcolors.YELLOW, guess, self.tcolors.RESET_ALL)) #TODO: User friendly feedback, possibly in the form of a "get_feedback()" function in utils.py.
+                        print("\n{}You guessed: '{}'. That's not a letter in the word.{}\n".format(self.tcolors.YELLOW, guess, self.tcolors.RESET_ALL))
                         if self.currentStage == 6:
-                            #self.player.print_current_stage(self.currentStage)
                             print("\n{}SPLAT! Game over.{}\n".format(self.tcolors.RED, self.tcolors.RESET_ALL))
+                            print("The correct answer was: '{}.'\n".format(self.word.get_selected_word()))
                             break
                 except TypeError as error:
                     print('{}[ERROR]: "{}"{}'.format(self.tcolors.RED, error, self.tcolors.RESET_ALL))
