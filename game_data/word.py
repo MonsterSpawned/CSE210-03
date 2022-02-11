@@ -30,7 +30,6 @@ class Word:
     #     print(self.guess_sub)
 
     def check_guess(self, letter: str) -> bool:
-        # Penis
         if len(letter) > 1:
             raise ValueError("Too many letters!")
         if letter not in self.selected_word:
